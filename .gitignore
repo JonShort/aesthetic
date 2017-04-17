@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /flow-typed
+/.vscode
 
 # testing
 /coverage
