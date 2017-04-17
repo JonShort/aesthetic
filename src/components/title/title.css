@@ -1,0 +1,43 @@
+.wrapper {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.container {
+  display: inline-flex;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.small {
+  font-size: calc(1.5vh + 1.5vw);
+}
+
+.white {
+  color: #fff;
+  transition: color 0.15s cubic-bezier(.19,.34,.81,.67);
+}
+
+.container:hover .white{
+  color: #ff1d8e;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.title {
+  align-self: center;
+  font-size: calc(4vh + 4vw);
+  letter-spacing: calc(1vw + 1vh);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+@media (min-width: 720px) {
+  .title {
+    font-size: calc(7vh + 7vw);
+  }
+}
