@@ -21,6 +21,7 @@
 }
 
 .container:hover .white{
+  background-color: #fff;
   color: #ff1d8e;
 }
 
