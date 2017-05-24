@@ -1,5 +1,6 @@
 // @flow
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router';
 
 import '../../styles/containers.css';
 import './enter-subject.css';
@@ -9,10 +10,7 @@ class EnterSubject extends Component {
 
   state = {
     value: "",
-  };
-
-  props: {
-    onSubmit: () => mixed,
+    redirect: false,
   };
 
   componentDidMount() {
@@ -27,10 +25,19 @@ class EnterSubject extends Component {
 
   handleSubmit(e: Event) {
     e.preventDefault();
-    this.props.onSubmit(this.state.value);
+    this.setState({
+      redirect: true,
+    })
   }
 
   render() {
+    let redirectRoute = '';
+
+    if (this.state.value !== '') {
+      const i = this.state.value.replace(/\s+/g, '-').toLowerCase();
+      redirectRoute = i;
+    }
+
     return (
           <div className="wrapper">
             <form onSubmit={this.handleSubmit.bind(this)}>
@@ -42,6 +49,9 @@ class EnterSubject extends Component {
                 tabIndex={0}
                 value={this.state.value} />
             </form>
+            {this.state.redirect && (
+              <Redirect to={`/${redirectRoute}`} />
+            )}
           </div>
     );
   }
