@@ -50,7 +50,7 @@ class EnterSubject extends Component {
                 value={this.state.value} />
             </form>
             {this.state.redirect && (
-              <Redirect to={`/${redirectRoute}`} />
+              <Redirect push to={`/${redirectRoute}`} />
             )}
           </div>
     );
