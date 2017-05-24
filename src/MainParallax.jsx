@@ -8,13 +8,16 @@ import {
 
 class MainParallax extends Component {
   render() {
-    let subject = '';
-    const currentLocation = window.location.pathname;
+    let subject: string = '';
+    const currentLocation: string = window.location.pathname;
 
     if (currentLocation !== '/') {
-      const i = currentLocation.split('/');
-      subject = i[1].replace(/-/g, ' ');
-      
+      const i: string[] = currentLocation.split('/');
+      if (i[1] === 'aesthetic') {
+        subject = i[2].replace(/-/g, ' ');
+      } else {
+        subject = i[1].replace(/-/g, ' ');
+      }
     }
 
     return (

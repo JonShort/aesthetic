@@ -31,11 +31,18 @@ class EnterSubject extends Component {
   }
 
   render() {
-    let redirectRoute = '';
+    let redirectRoute: string = '';
+    const currentRoute: string = window.location.pathname;
 
     if (this.state.value !== '') {
-      const i = this.state.value.replace(/\s+/g, '-').toLowerCase();
-      redirectRoute = i;
+      const i: string = this.state.value.replace(/[^\w\d]/g, '-').toLowerCase();
+      if (currentRoute === '/' && this.state.value !== 'aesthetic') {
+        redirectRoute = i;
+      } else if (this.state.value !== 'aesthetic') {
+        redirectRoute = currentRoute + i;
+      } else {
+        redirectRoute = i + i;
+      }
     }
 
     return (
@@ -48,9 +55,10 @@ class EnterSubject extends Component {
                 ref={el => {this.input = el}}
                 tabIndex={0}
                 value={this.state.value} />
+              <span className="bar" />
             </form>
             {this.state.redirect && (
-              <Redirect push to={`/${redirectRoute}`} />
+              <Redirect push to={`${redirectRoute}`} />
             )}
           </div>
     );
