@@ -13,17 +13,17 @@ html, body, #root, .routing {
   width: 100%;
 }
 
-.hero-input:not([type="date"])::-webkit-input-placeholder {
+.hero-input::-webkit-input-placeholder {
   color: rgba(255,255,255,0.8);
   font-size: calc(4vh + 4vw);
 }
 
-.hero-input:not([type="date"])::-moz-placeholder {
+.hero-input::-moz-placeholder {
   color: rgba(255,255,255,0.8);
   font-size: calc(4vh + 4vw);
 }
 
-.hero-input:not([type="date"]):-ms-input-placeholder {
+.hero-input:-ms-input-placeholder {
   color: rgba(255,255,255,0.8);
   font-size: calc(4vh + 4vw);
 }
@@ -36,12 +36,12 @@ html, body, #root, .routing {
 }
 
 .bar:before, .bar:after {
+  background: rgb(255, 105, 180);
   content: '';
   height: calc(0.25vh + 0.25vw);
   width: 0;
   bottom: calc(-1vh + -1vw);
   position: absolute;
-  background: rgba(255, 105, 180, 0.25);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
