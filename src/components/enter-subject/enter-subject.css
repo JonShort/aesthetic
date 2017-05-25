@@ -1,5 +1,5 @@
-html, body, #root {
-    height: 100%;
+html, body, #root, .routing {
+  height: 100%;
 }
 
 .hero-input {
@@ -13,17 +13,48 @@ html, body, #root {
   width: 100%;
 }
 
-.hero-input:not([type="date"])::-webkit-input-placeholder {
-    color: rgba(255,255,255,0.8);
-    font-size: calc(4vh + 4vw);
+.hero-input::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: calc(4vh + 4vw);
 }
 
-.hero-input:not([type="date"])::-moz-placeholder {
-    color: rgba(255,255,255,0.8);
-    font-size: calc(4vh + 4vw);
+.hero-input::-moz-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: calc(4vh + 4vw);
 }
 
-.hero-input:not([type="date"]):-ms-input-placeholder {
-    color: rgba(255,255,255,0.8);
-    font-size: calc(4vh + 4vw);
+.hero-input:-ms-input-placeholder {
+  color: rgba(255,255,255,0.8);
+  font-size: calc(4vh + 4vw);
+}
+
+.bar {
+  display: block;
+  margin: auto;
+  position: relative;
+  width: 60%;
+}
+
+.bar:before, .bar:after {
+  background: rgb(255, 105, 180);
+  content: '';
+  height: calc(0.25vh + 0.25vw);
+  width: 0;
+  bottom: calc(-1vh + -1vw);
+  position: absolute;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
 }
