@@ -33,16 +33,27 @@ class EnterSubject extends Component {
   render() {
     let redirectRoute: string = '';
     const currentRoute: string = window.location.pathname;
+    const currentSearch: string = window.location.search;
 
     if (this.state.value !== '') {
       const i: string = this.state.value.replace(/[^\w\d]/g, '-').toLowerCase();
+      // If at root & entered value is not aesthetic
       if (currentRoute === '/' && this.state.value !== 'aesthetic') {
         redirectRoute = i;
-      } else if (this.state.value !== 'aesthetic') {
+      } else if (this.state.value === 'aesthetic') {
         redirectRoute = currentRoute + i;
       } else {
-        redirectRoute = i + i;
+        redirectRoute = currentRoute + i;
       }
+    }
+
+    if (currentSearch) {
+      const array: string[] = currentSearch.split('/');
+      const path: string = array[1];
+      this.setState({
+        value: path,
+        redirect: true,
+      });
     }
 
     return (
