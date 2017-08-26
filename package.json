@@ -17,9 +17,6 @@
     "react-springy-parallax": "^1.0.11"
   },
   "devDependencies": {
-    "flow-bin": "^0.52.0",
-    "flow-typed": "^2.1.2",
-    "gh-pages": "^1.0.0",
     "react-scripts": "^1.0.1"
   },
   "scripts": {
