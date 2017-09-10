@@ -5,8 +5,15 @@ import { Redirect } from 'react-router';
 import '../../styles/containers.css';
 import './enter-subject.css';
 
-class EnterSubject extends Component {
-  input: HTMLInputElement;
+type Props = {};
+
+type State = {
+  value: string,
+  redirect: boolean,
+};
+
+class EnterSubject extends Component<Props, State> {
+  input: ?HTMLInputElement;
 
   state = {
     value: "",
@@ -14,16 +21,17 @@ class EnterSubject extends Component {
   };
 
   componentDidMount() {
-    this.input.focus();
+    this.input && this.input.focus();
   }
 
-  handleInput(input: EventTarget) {
+  handleInput = () => {
+    this.input &&
     this.setState({
       value: this.input.value,
     })
   }
 
-  handleSubmit(e: Event) {
+  handleSubmit = (e: Event) => {
     e.preventDefault();
     this.setState({
       redirect: true,
@@ -58,10 +66,10 @@ class EnterSubject extends Component {
 
     return (
           <div className="wrapper">
-            <form onSubmit={this.handleSubmit.bind(this)}>
+            <form onSubmit={this.handleSubmit}>
               <input
                 className="hero-input"
-                onChange={this.handleInput.bind(this)}
+                onChange={this.handleInput}
                 placeholder="Who are you?"
                 ref={el => {this.input = el}}
                 tabIndex={0}
